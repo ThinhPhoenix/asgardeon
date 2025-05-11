@@ -1,5 +1,5 @@
 # Asgardeon Loader Script
-# Version: 1.0
+# Version: 1.1
 
 # Load required .NET assemblies
 Add-Type -AssemblyName System.Windows.Forms
@@ -8,6 +8,7 @@ Add-Type -AssemblyName System.Drawing
 # Base URL for fetching modules
 $baseUrl = "https://raw.githubusercontent.com/thinhphoenix/asgardeon/main/methods"
 
+# First, define all required functions
 function Import-AsgardeonModule {
     param (
         [string]$ModuleName
@@ -19,7 +20,7 @@ function Import-AsgardeonModule {
         Invoke-Expression $moduleContent
         return $true
     } catch {
-        Write-Error "Failed to import module $ModuleName from $moduleUrl. Error: $_"
+        Write-Host "Failed to import module $ModuleName from $moduleUrl. Error: $_" -ForegroundColor Red
         return $false
     }
 }
@@ -41,7 +42,10 @@ function Initialize-Asgardeon {
         $success = Import-AsgardeonModule -ModuleName $module
         if (-not $success) {
             $failed = $true
+            Write-Host "Failed to load module: $module" -ForegroundColor Red
             break
+        } else {
+            Write-Host "Successfully loaded module: $module" -ForegroundColor Green
         }
     }
     
@@ -56,12 +60,16 @@ function Initialize-Asgardeon {
 function Start-Asgardeon {
     $initSuccess = Initialize-Asgardeon
     if ($initSuccess) {
-        # Start the main UI
-        Show-AsgardeonUI
+        # Verify function exists before calling
+        if (Get-Command -Name Show-AsgardeonUI -ErrorAction SilentlyContinue) {
+            # Start the main UI
+            Show-AsgardeonUI
+        } else {
+            [System.Windows.Forms.MessageBox]::Show("UI module was not properly loaded. Please check your internet connection and try again.", "Module Error", [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Error)
+        }
     }
 }
 
-# Individual function runners for direct function invocation
 function Set-AsgardeonTheme {
     param (
         [Parameter(Mandatory=$true)]
@@ -70,8 +78,10 @@ function Set-AsgardeonTheme {
     )
     
     $initSuccess = Initialize-Asgardeon
-    if ($initSuccess) {
+    if ($initSuccess -and (Get-Command -Name Set-WindowsTheme -ErrorAction SilentlyContinue)) {
         Set-WindowsTheme -Theme $Theme
+    } else {
+        Write-Host "Failed to initialize theme module" -ForegroundColor Red
     }
 }
 
@@ -82,12 +92,14 @@ function Set-AsgardeonWallpaper {
     )
     
     $initSuccess = Initialize-Asgardeon
-    if ($initSuccess) {
+    if ($initSuccess -and (Get-Command -Name Set-WallPaper -ErrorAction SilentlyContinue)) {
         if (Test-Path $ImagePath) {
             Set-WallPaper -ImagePath $ImagePath
         } else {
-            Write-Error "Image file not found at path: $ImagePath"
+            Write-Host "Image file not found at path: $ImagePath" -ForegroundColor Red
         }
+    } else {
+        Write-Host "Failed to initialize wallpaper module" -ForegroundColor Red
     }
 }
 
@@ -98,31 +110,39 @@ function Set-AsgardeonLockScreen {
     )
     
     $initSuccess = Initialize-Asgardeon
-    if ($initSuccess) {
+    if ($initSuccess -and (Get-Command -Name Set-LockScreenWallpaper -ErrorAction SilentlyContinue)) {
         if (Test-Path $ImagePath) {
             Set-LockScreenWallpaper -ImagePath $ImagePath
         } else {
-            Write-Error "Image file not found at path: $ImagePath"
+            Write-Host "Image file not found at path: $ImagePath" -ForegroundColor Red
         }
+    } else {
+        Write-Host "Failed to initialize lock screen module" -ForegroundColor Red
     }
 }
 
 function Start-WindowsActivation {
     $initSuccess = Initialize-Asgardeon
-    if ($initSuccess) {
+    if ($initSuccess -and (Get-Command -Name Activate-WindowsOffice -ErrorAction SilentlyContinue)) {
         Activate-WindowsOffice
+    } else {
+        Write-Host "Failed to initialize activation module" -ForegroundColor Red
     }
 }
 
 function Enable-HideActivation {
     $initSuccess = Initialize-Asgardeon
-    if ($initSuccess) {
+    if ($initSuccess -and (Get-Command -Name Hide-WindowsActivation -ErrorAction SilentlyContinue)) {
         Hide-WindowsActivation
+    } else {
+        Write-Host "Failed to initialize hide activation module" -ForegroundColor Red
     }
 }
 
-# Export functions (this is important for remote invocation)
-Export-ModuleMember -Function Start-Asgardeon, Set-AsgardeonTheme, Set-AsgardeonWallpaper, Set-AsgardeonLockScreen, Start-WindowsActivation, Enable-HideActivation
-
 # Default action when script is invoked without parameters
-Start-Asgardeon
+# First check if any parameters were specified
+$params = $args
+if ($params.Count -eq 0) {
+    # No parameters, start the UI
+    Start-Asgardeon
+}

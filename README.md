@@ -18,7 +18,7 @@
 ### 🛠️ 𝓗𝓸𝔀 𝓽𝓸 𝓾𝓼𝓮
 
 1. Open **PowerShell as Administrator**
-2. Run the following command:
+2. Run the following command to launch the full UI:
 
 ```powershell
 irm https://l8.nu/125QH | iex
@@ -32,3 +32,32 @@ irm https://raw.githubusercontent.com/ThinhPhoenix/winstorm/refs/heads/main/main
 ```
 
 </details>
+
+### 📋 𝓓𝓲𝓻𝓮𝓬𝓽 𝓕𝓾𝓷𝓬𝓽𝓲𝓸𝓷 𝓤𝓼𝓪𝓰𝓮
+
+You can also invoke specific functions directly:
+
+#### Set Dark Theme:
+```powershell
+irm https://l8.nu/125QH | iex; Set-AsgardeonTheme -Theme Dark
+```
+
+#### Set Light Theme:
+```powershell
+irm https://l8.nu/125QH | iex; Set-AsgardeonTheme -Theme Light
+```
+
+#### Set Desktop Wallpaper:
+```powershell
+irm https://l8.nu/125QH | iex; Set-AsgardeonWallpaper -ImagePath "C:\path\to\wallpaper.jpg"
+```
+
+#### Run Windows/Office Activation:
+```powershell
+irm https://l8.nu/125QH | iex; Start-WindowsActivation
+```
+
+#### Hide Windows Activation Watermark:
+```powershell
+irm https://l8.nu/125QH | iex; Enable-HideActivation
+```
