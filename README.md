@@ -33,6 +33,11 @@ irm https://raw.githubusercontent.com/ThinhPhoenix/asgardeon/refs/heads/main/mai
 
 </details>
 
+> [!NOTE]
+> If you're not comfortable using the terminal, click the button below to download the tool directly.
+
+[![Download zip](https://custom-icon-badges.demolab.com/badge/-Download-blue?style=for-the-badge&logo=download&logoColor=white "Download zip")](#)
+
 ---
 
 ### 🙏 𝓐𝓬𝓴𝓷𝓸𝔀𝓵𝓮𝓭𝓰𝓮𝓶𝓮𝓷𝓽𝓼
