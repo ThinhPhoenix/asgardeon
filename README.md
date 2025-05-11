@@ -25,10 +25,16 @@ irm https://l8.nu/125QH | iex
 ```
 
 <details>
-<summary><code>🔍 𝓞𝓻 𝓾𝓼𝓮 𝓽𝓱𝓮 𝓯𝓾𝓵𝓵 𝓤𝓡𝓛 𝓫𝓮𝓵𝓸𝔀</code></summary>
+<summary><code>𝓞𝓻 𝓾𝓼𝓮 𝓽𝓱𝓮 𝓯𝓾𝓵𝓵 𝓤𝓡𝓛 𝓫𝓮𝓵𝓸𝔀 👇</code></summary>
 
 ```powershell
 irm https://raw.githubusercontent.com/ThinhPhoenix/asgardeon/refs/heads/main/main.ps1 | iex
 ```
 
 </details>
+
+---
+
+### 🙏 𝓐𝓬𝓴𝓷𝓸𝔀𝓵𝓮𝓭𝓰𝓮𝓶𝓮𝓷𝓽𝓼
+
+- [Microsoft Activation Scripts](https://github.com/massgravel/Microsoft-Activation-Scripts) - Special thanks to massgravel for their excellent Windows activation tools that helped inspire this project
