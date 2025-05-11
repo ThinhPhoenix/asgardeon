@@ -28,7 +28,7 @@ irm https://l8.nu/125QH | iex
 <summary><code>🔍 𝓞𝓻 𝓾𝓼𝓮 𝓽𝓱𝓮 𝓯𝓾𝓵𝓵 𝓤𝓡𝓛 𝓫𝓮𝓵𝓸𝔀</code></summary>
 
 ```powershell
-irm https://raw.githubusercontent.com/ThinhPhoenix/winstorm/refs/heads/main/main.ps1 | iex
+irm https://raw.githubusercontent.com/ThinhPhoenix/asgardeon/refs/heads/main/main.ps1 | iex
 ```
 
 </details>
