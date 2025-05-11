@@ -1,6 +1,6 @@
 ### ⚙️ 𝓐𝓼𝓰𝓪𝓻𝓭𝓮𝓸𝓷: _Windows Tweak Tool_
 
-![Asgardeon](https://github.com/user-attachments/assets/20a2f6ed-5a48-4357-bfe0-c7d6ebcdda52)
+![Asgardeon](https://github.com/user-attachments/assets/88b0d78b-3da5-490c-ba1d-1aa519b335cc)
 
 **Asgardeon** is a powerful Windows customization utility that lets you fine-tune your system with ease. Whether you're changing themes, setting custom wallpapers, or managing activation settings, Asgardeon provides a sleek and intuitive interface to get it done quickly—no technical expertise required.
 
