@@ -21,7 +21,7 @@
 2. Run the following command to launch the full UI:
 
 ```powershell
-irm https://l8.nu/125QH | iex
+irm https://tinyurl.com/mvhuxsk3 | iex
 ```
 
 <details>
